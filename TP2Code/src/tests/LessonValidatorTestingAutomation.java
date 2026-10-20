@@ -1,12 +1,13 @@
 package tests;
 
-import lessonValidator.LessonValidator;
+import entityClasses.LessonsLearned;
 
 /*******
  * <p> Title: LessonValidatorTestingAutomation Class </p>
  *
  * <p> Description: Automated tests TC-1 to TC-11 from Test Cases.pdf for the lesson title, body and
- * category checks. Each test passes only when the exact expected message is returned. </p>
+ * category checks. Each test passes only when the exact expected message is returned.  The
+ * checks are the static check methods of the LessonsLearned class. </p>
  *
  * <p> Copyright: Elijah Batchelor © 2026 </p>
  *
@@ -62,11 +63,11 @@ public class LessonValidatorTestingAutomation {
 		// Step 1: run the checker for the field being tested
 		String resultText = "";
 		if (field.equals("title")) {
-			resultText = LessonValidator.checkTitle(input);
+			resultText = LessonsLearned.checkTitle(input);
 		} else if (field.equals("body")) {
-			resultText = LessonValidator.checkBody(input);
+			resultText = LessonsLearned.checkDescription(input);
 		} else if (field.equals("category")) {
-			resultText = LessonValidator.checkCategory(input);
+			resultText = LessonsLearned.checkCategory(input);
 		} else {
 			System.out.println("***Failure*** Unknown field: " + field);
 			numFailed++;

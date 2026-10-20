@@ -1050,7 +1050,7 @@ public class Database {
 			return false;
 		}
 		
-		query = "UPDATE lessonsDB SET contributor = ? WHERE cohntributor = ?";
+		query = "UPDATE lessonsDB SET contributor = ? WHERE contributor = ?";
 		try (PreparedStatement pstmt = connection.prepareStatement(query)){
 			pstmt.setString(1, newUsername);
 			pstmt.setString(2, oldUsername);
@@ -1660,6 +1660,16 @@ public class Database {
 	 * @return true if the description of the current lesson is locked
 	 */
 	public boolean getCurrentDescriptionLocked() { return currentDescriptionLocked;};
+	
+	/*******
+	 * <p> Method: Connection getConnection() </p>
+	 * 
+	 * <p> Description: Gives entity classes that persist themselves (e.g. LessonsLearnedList)
+	 * access to the shared database connection.</p>
+	 * 
+	 * @return the open connection, or null if connectToDatabase has not been called
+	 */
+	public Connection getConnection() { return connection; }
 	
 	/*******
 	 * <p> Debugging method</p>
