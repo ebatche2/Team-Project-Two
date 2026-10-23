@@ -1297,6 +1297,20 @@ public class Database {
 		}
 	}
 	
+	/*******
+	 * <p> Method: boolean doesLessonTitleExist(String title, int excludeId) </p>
+	 * 
+	 * <p> Description: Check whether a lesson other than the one being edited already uses this
+	 * 		title. The comparison ignores upper and lower case. </p>
+	 * 
+	 * @param title is the title to look for
+	 * 
+	 * @param excludeId is the id of the lesson being edited, which is ignored so a lesson does
+	 * 		not conflict with its own title
+	 * 
+	 * @return true if another lesson already has this title, else false (also false if a
+	 * 		database error occurs)
+	 */
 	public boolean doesLessonTitleExist(String title, int excludeId) {
 		String query = "SELECT COUNT(*) FROM lessonsDB WHERE LOWER(title) = LOWER(?) AND id <> ?";
 		try (PreparedStatement pstmt = connection.prepareStatement(query)) {

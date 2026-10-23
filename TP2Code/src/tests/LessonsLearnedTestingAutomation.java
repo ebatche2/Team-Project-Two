@@ -36,7 +36,12 @@ import entityClasses.LessonsLearnedList;
  *
  * @version 1.00	2026-10-19 Initial version for TP2
  */
+
+
 public class LessonsLearnedTestingAutomation {
+	
+	/** Default constructor is not used. */
+	public LessonsLearnedTestingAutomation() {}
 
 	static int numPassed = 0;
 	static int numFailed = 0;
