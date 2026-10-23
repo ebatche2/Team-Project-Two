@@ -14,12 +14,21 @@ import entityClasses.LessonsLearned;
  * @author Elijah Batchelor
  */
 public class LessonValidatorTestingAutomation {
+	
+	/** Default constructor is not used. */
+	public LessonValidatorTestingAutomation() {}
 
 	static int numPassed = 0;
 	static int numFailed = 0;
 
 	private static final String CATEGORY_ERROR = "Error: Please enter valid category. (Bug Issues, Javadoc, Methods, Classes). Entered: ";
 
+	/**
+	 * Runs every test case in this class and prints the number passed and failed.
+	 *
+	 * @param args not used
+	 * 
+	 */
 	public static void main(String[] args) {
 
 		// Title (US-6)

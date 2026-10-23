@@ -17,6 +17,9 @@ import entityClasses.LessonsLearnedList;
  * @author Elijah Batchelor
  */
 public class LessonDatabaseTestingAutomation {
+	
+	/** Default constructor is not used. */
+    public LessonDatabaseTestingAutomation() {}
 
     static int numPassed = 0;
     static int numFailed = 0;
@@ -65,7 +68,13 @@ public class LessonDatabaseTestingAutomation {
         lesson.setCategory(category);
         return list.update(lesson, AUTHOR_A);
     }
-
+    
+	/**
+	 * Runs every test case in this class and prints the number passed and failed.
+	 *
+	 * @param args not used
+	 * @throws Exception if a database error stops the tests
+	 */
     public static void main(String[] args) throws Exception {
         db = new Database();
         db.connectToDatabase();
