@@ -41,9 +41,10 @@ public class ControllerRole2Home {
 	
 	 */
 	
+	/** A variable to allow the code to access the database **/
 	private static Database theDatabase = applicationMain.FoundationsMain.database;
 	
-	// The id of the lesson selected in the combo box, or -1 when no lesson is selected
+	/** The id of the lesson selected in the combo box, or -1 when no lesson is selected **/
 	private static int selectedLessonId = -1;
 	
 	/**********

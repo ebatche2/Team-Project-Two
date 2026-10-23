@@ -14,6 +14,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.ListView;
 import database.Database;
 import entityClasses.User;
+import guiRole2.ViewRole2Home;
 
 
 /*******
@@ -40,8 +41,9 @@ public class ViewRole1Home {
 	 */
 	
 	// These are the application values required by the user interface
-	
+	/** Width of the screen **/
 	private static double width = applicationMain.FoundationsMain.WINDOW_WIDTH;
+	/** Height of the screen **/
 	private static double height = applicationMain.FoundationsMain.WINDOW_HEIGHT;
 
 
@@ -49,67 +51,106 @@ public class ViewRole1Home {
 	
 	// GUI Area 1: It informs the user about the purpose of this page, whose account is being used,
 	// and a button to allow this user to update the account settings
+	
+	/** The Page Title **/
 	protected static Label label_PageTitle = new Label();
+	/** The User Details **/
 	protected static Label label_UserDetails = new Label();
+	/** The button to update the account **/
 	protected static Button button_UpdateThisUser = new Button("Account Update");
 	
-	// This is a separator and it is used to partition the GUI for various tasks
+	/** This is a separator and it is used to partition the GUI for various tasks **/
 	protected static Line line_Separator1 = new Line(20, 95, width-20, 95);
 
 	// GUI Area 2: This is a stub, so there are no widgets here.  For an actual role page, this are
 	// would contain the widgets needed for the user to play the assigned role.
 	
+	/** Label for the current users Lessons Learned **/
 	protected static Label label_SelectLesson = new Label("My Lessons Learned:");
+	/** A dropdown menu to select a lesson **/
 	protected static ComboBox<String> combobox_SelectLesson = new ComboBox<String>();
+	/** A Label for the lesson title **/
 	protected static Label label_Title = new Label("Title:");
+	/** The Lesson Title **/
 	protected static TextField text_Title = new TextField();
+	/** Label for if the title is locked **/
 	protected static Label label_TitleLocked = new Label();
+	/** Label for the description of the current lesson **/
 	protected static Label label_Description = new Label("Description:");
+	/** Description of the current Lesson **/
 	protected static TextArea text_Description = new TextArea();
+	/** Label for if the Description is locked **/
 	protected static Label label_DescriptionLocked = new Label();
+	/** Button to add a new lesson **/
 	protected static Button button_AddLesson = new Button("Add New Lesson");
+	/** Button to save changes to current lesson **/
 	protected static Button button_SaveLesson = new Button("Save Changes");
+	/** Button to delete the current lesson **/
 	protected static Button button_DeleteLesson = new Button("Delete Lesson");
 	
-	// This is a separator and it is used to partition the GUI for various tasks
+	/** This is a separator and it is used to partition the GUI for various tasks **/
 	protected static Line line_Separator2 = new Line(20, 340, width-20, 340);
 	
 	// GUI Area 2b: Experience information for the selected lesson
+	
+	/** Label for what was done experience **/
 	protected static Label label_WhatWasDone = new Label("What was done:");
+	/** What was done **/
 	protected static TextField text_WhatWasDone = new TextField();
+	/** Label for how it was done **/
 	protected static Label label_HowItWasDone = new Label("How it was done:");
+	/** How it was done **/
 	protected static TextField text_HowItWasDone = new TextField();
+	/** Label for the time taken for the lesson **/
 	protected static Label label_TimeTaken = new Label("Time taken:");
+	/** The time taken for the lesson **/
 	protected static TextField text_TimeTaken = new TextField();
+	/** Label for the Team Effort in the lesson **/
 	protected static Label label_TeamEffort = new Label("Team effort:");
+	/** The Team effort in the lesson **/
 	protected static TextField text_TeamEffort = new TextField();
+	/** Button to add or update the experience of the lesson **/
 	protected static Button button_AddExperience = new Button("Add Experience");
+	/** A list to display the experience **/
 	protected static ListView<String> list_Experience = new ListView<String>();
 	
-	// This is a separator and it is used to partition the GUI for various tasks
+	/** This is a separator and it is used to partition the GUI for various tasks **/
 	protected static Line line_Separator4 = new Line(20, 525, width-20,525);
 	
 	// GUI Area 3: This is last of the GUI areas.  It is used for quitting the application and for
 	// logging out.
+	
+	/** The logout button **/
 	protected static Button button_Logout = new Button("Logout");
+	/** The quit button **/
 	protected static Button button_Quit = new Button("Quit");
 
 	// This is the end of the GUI objects for the page.
 	
-	// These attributes are used to configure the page and populate it with this user's information
-	private static ViewRole1Home theView;		// Used to determine if instantiation of the class
-												// is needed
+	/** These attributes are used to configure the page and populate it with this user's information
+	 * Used to determine if instantiation of the class is needed
+	 */
+	private static ViewRole1Home theView;
 
-	// Reference for the in-memory database so this package has access
+	/** Reference for the in-memory database so this package has access **/
 	private static Database theDatabase = applicationMain.FoundationsMain.database;
-
-	protected static Stage theStage;			// The Stage that JavaFX has established for us	
-	protected static Pane theRootPane;			// The Pane that holds all the GUI widgets
-	protected static User theUser;				// The current logged in User
 	
-
-	private static Scene theViewRole1HomeScene;	// The shared Scene each invocation populates
-	protected static final int theRole = 2;		// Admin: 1; Role1: 2; Role2: 3
+	/** The Stage that JavaFX has established for us **/
+	protected static Stage theStage;
+	
+	/** The Pane that holds all the GUI widgets **/
+	protected static Pane theRootPane;
+	
+	/** The current logged in User **/
+	protected static User theUser;	
+	
+	/** The shared Scene each invocation populates **/
+	private static Scene theViewRole1HomeScene;
+	
+	/** An integer that stores the Role of the User, should always be 2 on this page for Role1
+	 * Admin: 1; Role1: 2; Role2: 3
+	 */
+	protected static final int theRole = 2;
 
 	/*-*******************************************************************************************
 
@@ -170,7 +211,7 @@ public class ViewRole1Home {
 	 * This method determines the location, size, font, color, and change and event handlers for
 	 * each GUI object.</p>
 	 * 
-	 * This is a singleton and is only performed once.  Subsequent uses fill in the changeable
+	 * <p> This is a singleton and is only performed once.  Subsequent uses fill in the changeable
 	 * fields using the displayRole2Home method.</p>
 	 * 
 	 */

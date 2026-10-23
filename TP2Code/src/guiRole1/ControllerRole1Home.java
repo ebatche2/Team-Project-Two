@@ -33,7 +33,9 @@ public class ControllerRole1Home {
 	public ControllerRole1Home() {
 	}
 	
+	/** Variable to access the database **/
 	private static Database theDatabase = applicationMain.FoundationsMain.database;
+	/** Stores the current Lesson ID **/
 	private static int selectedLessonID = -1;
 
 	/*-*******************************************************************************************
@@ -67,7 +69,7 @@ public class ControllerRole1Home {
 	 * core information is shown, locked fields are made read only, and the lesson's experience
 	 * entries are listed. </p>
 	 * 
-	 */
+	 **/
 	protected static void selectLesson() {
 		String selected = ViewRole1Home.combobox_SelectLesson.getValue();
 		
@@ -122,7 +124,7 @@ public class ControllerRole1Home {
 	 * 
 	 * <p> Description: This method adds a new lesson using the title and description fields. </p>
 	 * 
-	 */
+	 **/
 	protected static void performAddLesson() {
 		String title = ViewRole1Home.text_Title.getText().trim();
 		String description = ViewRole1Home.text_Description.getText().trim();
@@ -149,7 +151,7 @@ public class ControllerRole1Home {
 	 * <p> Description: This method saves the fields of the selected lesson that are not locked.
 	 * </p>
 	 * 
-	 */
+	 **/
 	protected static void performSaveLesson() {
 		if (selectedLessonID < 0) return;
 		String userName = ViewRole1Home.theUser.getUserName();
@@ -179,7 +181,7 @@ public class ControllerRole1Home {
 	 * 
 	 * <p> Description: This method deletes the selected lesson after the user confirms. </p>
 	 * 
-	 */
+	 **/
 	protected static void performDeleteLesson() {
 		if (selectedLessonID < 0) return;
 		Alert confirm = new Alert(AlertType.CONFIRMATION);
@@ -201,7 +203,7 @@ public class ControllerRole1Home {
 	 * 
 	 * <p> Description: This method adds experience information to the selected lesson. </p>
 	 * 
-	 */
+	 **/
 	protected static void performAddExperience() {
 		if (selectedLessonID < 0) return;
 		String what = ViewRole1Home.text_WhatWasDone.getText().trim();
@@ -232,7 +234,7 @@ public class ControllerRole1Home {
 	 * <p> Description: This method directs the user to the User Update Page so the user can change
 	 * the user account attributes. </p>
 	 * 
-	 */
+	 **/
 	protected static void performUpdate () {
 		guiUserUpdate.ViewUserUpdate.displayUserUpdate(ViewRole1Home.theStage, ViewRole1Home.theUser);
 	}	
@@ -244,7 +246,7 @@ public class ControllerRole1Home {
 	 * page where existing users can log in or potential new users with a invitation code can
 	 * start the process of setting up an account. </p>
 	 * 
-	 */
+	 **/
 	protected static void performLogout() {
 		guiUserLogin.ViewUserLogin.displayUserLogin(ViewRole1Home.theStage);
 	}
@@ -256,7 +258,7 @@ public class ControllerRole1Home {
 	 * database in a state where the normal login page will be displayed when the application is
 	 * restarted.</p>
 	 * 
-	 */	
+	 **/	
 	protected static void performQuit() {
 		System.exit(0);
 	}
@@ -271,7 +273,7 @@ public class ControllerRole1Home {
 	 * Private local method to select the combo box entry for a given lesson id
 	 * 
 	 * @param id	The id of the lesson to select
-	 */
+	 **/
 	private static void selectLessonById(int id) {
 		for (String item : ViewRole1Home.combobox_SelectLesson.getItems()) {
 			if (item.startsWith(id + ":")) {
@@ -286,7 +288,7 @@ public class ControllerRole1Home {
 	 * 
 	 * @param header	The header text of the alert
 	 * @param content	The content text of the alert
-	 */
+	 **/
 	private static void showMessage(String header, String content) {
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Lessons Learned");
