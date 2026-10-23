@@ -42,7 +42,9 @@ public class ViewRole2Home {
 	
 	// These are the application values required by the user interface
 	
+	/** The width of the window **/
 	private static double width = applicationMain.FoundationsMain.WINDOW_WIDTH;
+	/** The height of the window **/
 	private static double height = applicationMain.FoundationsMain.WINDOW_HEIGHT;
 
 
@@ -50,49 +52,76 @@ public class ViewRole2Home {
 	
 	// GUI Area 1: It informs the user about the purpose of this page, whose account is being used,
 	// and a button to allow this user to update the account settings
+	
+	/** Label for Page Title **/
 	protected static Label label_PageTitle = new Label();
+	/** Label for User Details **/
 	protected static Label label_UserDetails = new Label();
+	/** Account Update Button **/
 	protected static Button button_UpdateThisUser = new Button("Account Update");
 		
-	// This is a separator and it is used to partition the GUI for various tasks
+	/** This is a separator and it is used to partition the GUI for various tasks **/
 	protected static Line line_Separator1 = new Line(20, 95, width-20, 95);
 
 	// GUI Area 2: This is a stub, so there are no widgets here.  For an actual role page, this are
 	// would contain the widgets needed for the user to play the assigned role.
 	
+	/** Label for All Lessons Learned **/
 	protected static Label label_SelectLesson = new Label("All Lessons Learned:");
+	/** Dropdown menu to select a lesson **/
 	protected static ComboBox<String> combobox_SelectLesson = new ComboBox<String>();
+	/** Label for title of lesson **/
 	protected static Label label_Title = new Label("Title:");
+	/** Title of lesson **/
 	protected static TextField text_Title = new TextField();
+	/** Label for description of lesson **/
 	protected static Label label_Description = new Label("Description:");
+	/** Description of lesson **/
 	protected static TextArea text_Description = new TextArea();
+	/** Button to Lock Entire Lesson **/
 	protected static CheckBox checkbox_LockLesson = new CheckBox("Lock Entire Lesson");
+	/** Button to Lock Lesson Title **/
 	protected static CheckBox checkbox_LockTitle = new CheckBox("Lock Title");
+	/** Button to Lock Lesson Description **/
 	protected static CheckBox checkbox_LockDescription = new CheckBox("Lock Description");
 	
-	// This is a separator and it is used to partition the GUI for various tasks
+	/** This is a separator and it is used to partition the GUI for various tasks **/
 	protected static Line line_Separator4 = new Line(20, 525, width-20,525);
 	
 	// GUI Area 3: This is last of the GUI areas.  It is used for quitting the application and for
 	// logging out.
+	
+	/** Logout Button **/
 	protected static Button button_Logout = new Button("Logout");
+	/** Quit Button **/
 	protected static Button button_Quit = new Button("Quit");
 
 	// This is the end of the GUI objects for the page.
 	
-	// These attributes are used to configure the page and populate it with this user's information
-	private static ViewRole2Home theView;		// Used to determine if instantiation of the class
-												// is needed
+	/** These attributes are used to configure the page and populate it with this user's information
+	 * Used to determine if instantiation of the class is needed
+	 */
+	private static ViewRole2Home theView;
 
-	// Reference for the in-memory database so this package has access
+	/** Reference for the in-memory database so this package has access **/
 	private static Database theDatabase = applicationMain.FoundationsMain.database;
-
-	protected static Stage theStage;			// The Stage that JavaFX has established for us	
-	protected static Pane theRootPane;			// The Pane that holds all the GUI widgets
-	protected static User theUser;				// The current logged in User
 	
-	private static Scene theRole2HomeScene;		// The shared Scene each invocation populates
-	protected static final int theRole = 3;		// Admin: 1; Role1: 2; Role2: 3
+	/** The Stage that JavaFX has established for us **/
+	protected static Stage theStage;
+	
+	/** The Pane that holds all the GUI widgets **/
+	protected static Pane theRootPane;
+	
+	/** The currently logged in User **/
+	protected static User theUser;
+	
+	/** The shared Scene each invocation populates **/
+	private static Scene theRole2HomeScene;
+	
+	/** An integer that stores the Role of the User, should always be 3 on this page for Role2
+	 * Admin: 1; Role1: 2; Role2: 3
+	 */
+	protected static final int theRole = 3;
 
 	/*-*******************************************************************************************
 
@@ -154,7 +183,7 @@ public class ViewRole2Home {
 	 * This method determines the location, size, font, color, and change and event handlers for
 	 * each GUI object. </p>
 	 * 
-	 * This is a singleton and is only performed once.  Subsequent uses fill in the changeable
+	 * <p>This is a singleton and is only performed once.  Subsequent uses fill in the changeable
 	 * fields using the displayRole2Home method.</p>
 	 * 
 	 */
